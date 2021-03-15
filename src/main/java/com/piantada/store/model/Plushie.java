@@ -9,11 +9,10 @@ import javax.persistence.Table;
 
 
 	@Entity
-	@Table(name = "plushie")
 	public class Plushie implements Serializable{
 		@Id
 		private Integer id;	
-		@Column(name="name")
+		@Column(name="name", length = 50)
 		private String name;
 		//private Double price;
 		//private String category; // this can be a class
