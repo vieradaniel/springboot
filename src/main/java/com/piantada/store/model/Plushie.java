@@ -14,9 +14,9 @@ import javax.persistence.Table;
 		private Integer id;	
 		@Column(name="name", length = 50)
 		private String name;
-		//private Double price;
-		//private String category; // this can be a class
-		//private Integer ammount;
+		private Double price;
+		private String category; // this can be a class
+		private Integer ammount;
 		
 			
 		public Plushie() {
@@ -43,7 +43,7 @@ import javax.persistence.Table;
 			this.name = name;
 		}
 
-/*
+
 		public Double getPrice() {
 			return price;
 		}
@@ -73,7 +73,7 @@ import javax.persistence.Table;
 			this.ammount = ammount;
 		}
 		
-		*/
+		
 		
 	
 }
