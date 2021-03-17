@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.piantada.store.model.Plushie;
 import com.piantada.store.repo.PlushieRepo;
 
-@Controller
+
+//@RestController        esto para que sea Restcontroller
+//@RequestMapping("/api/clients")  ??
+@Controller  // esto es para un standalone.
 public class StoreController {
 
 	@Autowired
@@ -18,21 +21,21 @@ public class StoreController {
 	@GetMapping("/")
 	public String greeting (@RequestParam(name="name", required = false, defaultValue = "World") String name,Model model) {
 		
-		
+		// path param or request param? con thymeleaf
 		//esta logica se tiene que encapsular en un paquete service? huh?
-		Plushie plushie = new Plushie();
-		plushie.setId(1);
-		plushie.setName("Batman");
-		repo.save(plushie);
+		//Plushie plushie = new Plushie();
+		
+		//plushie.setName("Batman");
+		//repo.save(plushie);
 		//hasta acá
 		model.addAttribute("name",name);
 		return "index";
 	}
-	@GetMapping("/list")
+	@GetMapping("/catalogo")
 	public String greeting (Model model) {
 				
 		model.addAttribute("plushies",repo.findAll());
-		return "index";
+		return "listView";
 	}
 	
 }
