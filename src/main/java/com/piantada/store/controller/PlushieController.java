@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.piantada.store.model.Plushie;
@@ -41,30 +43,14 @@ public class PlushieController {
 		return "new_plushie";
 	}
 	
-	
-	
-	
-	
-	/*@PostMapping("/catalogo")
-	public String greeting (@RequestParam(name="name", required = false, defaultValue = "World") String name,Model model) {
+	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	public String savePlushie(@ModelAttribute("plushie") Plushie plushie) {
+		service.save(plushie);
 		
-		// path param or request param? con thymeleaf
-		//esta logica se tiene que encapsular en un paquete service? huh?
-		Plushie plushie = new Plushie();
-		
-		plushie.setName(name);
-		repo.save(plushie);
-		//hasta acá
-		model.addAttribute("name",name);
-		return "addPlushie";
+		return "redirect:/";
 	}
 	
 	
-	@GetMapping("/catalogo")
-	public String greeting (Model model) {
-				
-		model.addAttribute("plushies",repo.findAll());
-		return "listView";
-	}*/
+	
 	
 }
