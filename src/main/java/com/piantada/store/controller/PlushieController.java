@@ -13,7 +13,7 @@ import com.piantada.store.repo.PlushieRepo;
 //@RestController        esto para que sea Restcontroller
 //@RequestMapping("/api/clients")  ??
 @Controller  // esto es para un standalone.
-public class StoreController {
+public class PlushieController {
 
 	@Autowired
 	private PlushieRepo repo;

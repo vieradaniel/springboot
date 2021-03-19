@@ -18,6 +18,8 @@ import javax.persistence.Table;
 		@Column(name="name", length = 50)
 		private String name;
 		private Double price;
+		
+		
 		private String category; // this can be a class
 		private Integer ammount;
 		
