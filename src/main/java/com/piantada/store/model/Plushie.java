@@ -1,13 +1,16 @@
 package com.piantada.store.model;
 
 import java.io.Serializable;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.OneToMany;
+
 
 
 	@Entity
@@ -19,8 +22,8 @@ import javax.persistence.Table;
 		private String name;
 		private Double price;
 		
-		
-		private String category; // this can be a class
+		@OneToMany(mappedBy="plushie", cascade=CascadeType.ALL,orphanRemoval=true)
+		private Set<Category> categories; // this can be a class
 		private Integer ammount;
 		
 			
@@ -59,16 +62,6 @@ import javax.persistence.Table;
 		}
 
 
-		public String getCategory() {
-			return category;
-		}
-
-
-		public void setCategory(String category) {
-			this.category = category;
-		}
-
-
 		public Integer getAmmount() {
 			return ammount;
 		}
@@ -76,6 +69,16 @@ import javax.persistence.Table;
 
 		public void setAmmount(Integer ammount) {
 			this.ammount = ammount;
+		}
+
+
+		public Set<Category> getCategories() {
+			return categories;
+		}
+
+
+		public void setCategories(Set<Category> categories) {
+			this.categories = categories;
 		}
 		
 		
