@@ -17,17 +17,17 @@
 	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
 	      <span class="navbar-toggler-icon"></span>
 	    </button>
-	    <a class="navbar-brand" href="/">Piantada</a>
+	    <a class="navbar-brand" href="#">Piantada</a>
 	    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
 	      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-	        <li class="nav-item">
-	          <a class="nav-link active" aria-current="page" href="/">Home</a>
-	        </li>
 	        <li class="nav-item">
 	          <a class="nav-link active" aria-current="page" href="/catalogo">Catálogo</a>
 	        </li>
 	        <li class="nav-item">
 	          <a class="nav-link" href="#">Categorias</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="new">New</a>
 	        </li>
 	        <li class="nav-item">
 	          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
@@ -41,28 +41,37 @@
 	  </div>
 	</nav>
   
+  
+  	<div>
+  		<h2> Edit plushie</h2>
+  		<br/>
+  		<form action="#" th:action= "@{/save}" th:object="${plushie}" method = "POST">
+  			<tr>
+  				<td> Product id: </td>
+  				<td><input type="text" th:field="*{id}" readonly="readonly"/></td>
+  			</tr>
+  			<tr>
+  				<td> Product name: </td>
+  				<td><input type="text" th:field="*{name}" /></td>
+  			</tr>
+  			<tr>
+  				<td> Price: </td>
+  				<td><input type="text" th:field= "*{price}"/></td>
+  			</tr>
+  			<tr>
+  			  <td colspan="2"><button type="submit">Save</button></td>
+  		
+  		</form>
+  	
+  	</div>
+  
+  
+  
+	
 	  
-	  <th:block th:each= "plushie : ${plushies}">
-		<div class="card mb-3">
-		  <img src="..." class="card-img-top" alt="...">
-		  <div class="card-body">
-		    <h5 th:text= "${plushie.name}">...</h5>
-		    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-		    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-		  </div>
-		</div>
-    	</th:block>
-<!-- 
-	<p th:text="'Hello, ' + ${name} + '!'" ></p>
-    <table>
-    	<th:block th:each= "plushie : ${plushies}">
-    		<tr>
-    			<td th:text= "${plushie.id}">...</td>
-    			<td th:text= "${plushie.name}">...</td>
-    		</tr>
-    	</th:block>
-    </table>
--->
+	  
+	
+
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
