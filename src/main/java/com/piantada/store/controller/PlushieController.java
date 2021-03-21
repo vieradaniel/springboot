@@ -3,6 +3,8 @@ package com.piantada.store.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -78,5 +80,29 @@ public class PlushieController {
 		service.delete(id);
 		return "redirect:/";
 	}
+	/*
+	@RequestMapping("/view/{id}")
+	public ModelAndView showPlushie(@PathVariable(name= "id") Long id) {
+		
+		ModelAndView mav = new ModelAndView("view_plushie");
+		Optional<Plushie> plushie = service.get(id);
+		
+		mav.addObject("plushie", plushie);
+		
+		return mav;
+	}
+	*/
+	
+	
+	@RequestMapping("/view/{id}")
+	public String view(@PathVariable Long id, Model model) {
+		
+		service.get(id).ifPresent(plushie -> model.addAttribute("plushie", plushie));		
+		return "view_plushie";
+	}
+	
+	
+	
+	
 	
 }

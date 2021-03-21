@@ -29,6 +29,8 @@ public class PlushieService {
 		return repo.findById(id);
 	}
 	
+	
+	
 	public void delete (Long id) {
 		repo.deleteById(id);
 	}
