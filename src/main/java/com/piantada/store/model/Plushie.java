@@ -20,10 +20,22 @@ import javax.persistence.OneToMany;
 		private Long id;	
 		@Column(name="name", length = 50)
 		private String name;
+		private String imageLink;
+		public String getImageLink() {
+			return imageLink;
+		}
+
+
+		public void setImageLink(String imageLink) {
+			this.imageLink = imageLink;
+		}
+
+
 		private Double price;
 		
+		/*
 		@OneToMany(mappedBy="plushie", cascade=CascadeType.ALL,orphanRemoval=true)
-		private Set<Category> categories; // this can be a class
+		private Set<Category> categories; // this can be a class*/
 		private Integer ammount;
 		
 			
@@ -71,7 +83,7 @@ import javax.persistence.OneToMany;
 			this.ammount = ammount;
 		}
 
-
+/*
 		public Set<Category> getCategories() {
 			return categories;
 		}
@@ -80,6 +92,9 @@ import javax.persistence.OneToMany;
 		public void setCategories(Set<Category> categories) {
 			this.categories = categories;
 		}
+
+*/
+		
 		
 		
 		

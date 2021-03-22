@@ -21,8 +21,8 @@ public class PlushieItem implements Serializable {
 	@Id
 	private Long id;
 	
-	//@OneToOne         // is it already inferred? 
-	//@JoinColumn(name="plushie_id")
+	@OneToOne         // is it already inferred? 
+	@JoinColumn(name="plushie_id")
 	private Plushie plushie;
 	
 	//@ManyToMany(fetch= FetchType.LAZY) // lazy is for performance
