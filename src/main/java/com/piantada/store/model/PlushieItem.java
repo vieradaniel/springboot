@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -21,13 +22,24 @@ public class PlushieItem implements Serializable {
 	@Id
 	private Long id;
 	
-	@OneToOne         // is it already inferred? 
+	@ManyToOne          // is it already inferred? 
 	@JoinColumn(name="plushie_id")
 	private Plushie plushie;
 	
-	//@ManyToMany(fetch= FetchType.LAZY) // lazy is for performance
-	//@JoinColumn(name="user_id")
-	//private User user;
+	@ManyToOne
+	@JoinColumn(name="customer_id")
+	private Customer customer;
+	
+	public Customer getCustomer() {
+		return customer;
+	}
+
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+
 	private Double price;
 	private Integer ammount;
 	

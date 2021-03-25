@@ -1,14 +1,12 @@
 package com.piantada.store.repo;
 
-import java.util.Optional;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.piantada.store.model.Plushie;
+import com.piantada.store.model.Customer;
+import com.piantada.store.model.User;
 
 @Repository
-public interface PlushieRepo extends JpaRepository<Plushie, Long> {
+public interface CustomerRepo extends JpaRepository<Customer, Long> {
 
-	
 }
