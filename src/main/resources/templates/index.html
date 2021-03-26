@@ -7,8 +7,10 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-	
+	<link rel="stylesheet" href="css/index.css">
     <title>Piantada Store</title>
+    
+    
   </head>
 
   <body>
@@ -86,8 +88,8 @@
 	  </div>
 	  
 	  
-	  
-	  <th:block th:each= "plushie : ${plushies}">
+<!--	  
+	<th:block th:each= "plushie : ${plushies}">
 		<div class="card mb-3">
 		  <img th:src="@{/images/{name}.jpg(name=${plushie.name})}" class="card-img-top" alt="...">
 		  <div class="card-body">
@@ -99,8 +101,22 @@
 		    <a th:href="@{'/delete/' + ${plushie.id}}">Delete</a>
 		  </div>
 		</div>
+-->		
+<main>
+		<th:block th:each= "plushie : ${plushies}">
+		<div class="card" style="width: 18rem;">
+  			<img th:src="@{/images/{name}.jpg(name=${plushie.name})}" class="card-img-top" alt="...">
+  			<div class="card-body">
+    			<h5 th:text= "${plushie.name}">Card title</h5>
+    			<p class="card-text" th:text="${plushie.price}">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    			<a th:href="@{'/view/' + ${plushie.id}}" class="btn btn-primary">View</a>
+    			<a th:href="@{'/edit/' + ${plushie.id}}" class="btn btn-primary">Edit</a>
+    			<a th:href="@{'/delete/' + ${plushie.id}}"class="btn btn-primary">Delete</a>
+  			</div>
+		</div>
 		
     	</th:block>
+ </main>
 <!-- 
 	<p th:text="'Hello, ' + ${name} + '!'" ></p>
     <table>

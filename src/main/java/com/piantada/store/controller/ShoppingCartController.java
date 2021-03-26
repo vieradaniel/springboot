@@ -21,6 +21,7 @@ public class ShoppingCartController {
 	public String showShoppingCart(Model model, Customer customer) {
 		
 		List<PlushieItem> plushieItems = cartService.listPlushieItems(customer);
+		model.addAttribute("plushieItems", plushieItems);
 		
 		return "shopping_cart";
 	}
