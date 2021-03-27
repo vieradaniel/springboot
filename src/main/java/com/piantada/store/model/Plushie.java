@@ -1,6 +1,7 @@
 package com.piantada.store.model;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -29,7 +30,8 @@ import javax.persistence.OneToMany;
 		public void setImageLink(String imageLink) {
 			this.imageLink = imageLink;
 		}
-
+		
+		//private List<Category> categories;
 
 		private Double price;
 		

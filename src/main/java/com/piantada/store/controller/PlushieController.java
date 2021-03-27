@@ -63,6 +63,13 @@ public class PlushieController {
 		
 		return "redirect:/";
 	}
+	/*
+	 * Algo así sería con @PostMapping
+	 @PostMapping("/save")
+	 public String savePlushie(plushie){
+	 	service.save(plushie);
+	 }
+	 * */
 	
 	
 	@RequestMapping("/edit/{id}")
@@ -121,5 +128,16 @@ public class PlushieController {
 		
 		return "view_plushie";
 	}
-	
+	/*
+	@GetMapping("/{category}")
+	public String view(@PathVariable String name, Model model) {
+		
+		
+		Plushie plushie = service.listByName(name);	
+		model.addAttribute("plushie",plushie);
+		
+		
+		return "view_plushie";
+	}
+	*/
 }
