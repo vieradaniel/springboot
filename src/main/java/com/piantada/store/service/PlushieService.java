@@ -21,6 +21,13 @@ public class PlushieService {
 		
 	}
 	
+	public Plushie listByName(String keyword){
+		
+		return repo.findByNameContains(keyword);
+		
+		
+	}
+	
 	public void save(Plushie plushie) {
 		repo.save(plushie);
 	}
@@ -34,6 +41,8 @@ public class PlushieService {
 	public void delete (Long id) {
 		repo.deleteById(id);
 	}
+	
+	
 	
 	
 }

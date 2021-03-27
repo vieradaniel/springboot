@@ -100,9 +100,26 @@ public class PlushieController {
 		service.get(id).ifPresent(plushie -> model.addAttribute("plushie", plushie));		
 		return "view_plushie";
 	}
+	/*
+	@RequestMapping(value = "/search", method = RequestMethod.POST)
+	@RequestMapping("/view/{id}")
+	public String view(@PathVariable Long name, Model model) {
+		
+		service.get(name).ifPresent(plushie -> model.addAttribute("plushie", plushie));		
+		return "view_plushie";
+	}
 	
+	*/
 	
-	
-	
+	@GetMapping("/{name}")
+	public String view(@PathVariable String name, Model model) {
+		
+		
+		Plushie plushie = service.listByName(name);	
+		model.addAttribute("plushie",plushie);
+		
+		
+		return "view_plushie";
+	}
 	
 }
